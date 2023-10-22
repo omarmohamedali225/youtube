@@ -1,5 +1,7 @@
 import { FileDownload, Home, Restore, Schedule, Slideshow, Subscriptions, ThumbUpOutlined, VideoLibrary, VideoSettings } from '@mui/icons-material'
-
+import meImg from '../../assets/me.jpg'
+import abdo from '../../assets/abdo.jpg'
+import img1 from '../../assets/1.avif'
 const ListItemsOne = [
   {
     icon: <Home />,
@@ -43,23 +45,23 @@ const ListItemsTwo = [
 ]
 const ListSubscribe = [
   {
-    src: "file.jpg",
-    name: "omarmohamedaliahmed"
+    src: meImg,
+    name: "Omar Mohamed Ali"
   }, 
   {
-    src: "a.jpg",
-    name: "عبدالرحمن محمد علي"
-  },
-  {
-    src: "b.jpg",
+    src: meImg,
     name: "عمر محمد علي"
   },
   {
-    src: null,
+    src: abdo,
+    name: "Abdelrahman Mohamed Ali"
+  },
+  {
+    src: img1,
     name: "اكاديمية العلم"
   },
   {
-    src: null,
+    src: img1,
     name: "تعلم اونلاين"
   },
 ]

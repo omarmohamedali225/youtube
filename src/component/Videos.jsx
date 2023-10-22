@@ -18,6 +18,7 @@ import {
   Stack,
   Tooltip,
   Typography,
+  Zoom,
 } from "@mui/material";
 import React, { useState } from "react";
 import { videos } from "./data/video";
@@ -26,7 +27,6 @@ export default function Videos() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const HandelOpen = (e) => {
-    console.log(e);
     setAnchorEl(e.currentTarget);
   };
   const HandelClose = () => {
@@ -40,13 +40,19 @@ export default function Videos() {
     >
       {videos.map((video, i) => (
         <Grid item xs={12} sm={6} md={4} key={i}>
-          <Card sx={{ position: "relative", minHeight: "100%" }}>
+          <Card
+            sx={{
+              position: "relative",
+              minHeight: "100%",
+              backgroundImage: "inherit",
+            }}
+          >
             <CardActionArea>
               <CardMedia height={200} src={video.avatar} component={"img"} />
             </CardActionArea>
             <CardContent sx={{ bgcolor: "#121212", pl: 0 }}>
               <Stack direction={"row"} spacing={1}>
-                <Avatar>a</Avatar>
+                <Avatar sx={{ bgcolor: "#5D4038", color: "white" }}>O</Avatar>
                 <Stack>
                   <IconButton
                     size="small"
@@ -65,36 +71,6 @@ export default function Videos() {
                   >
                     <MoreVert />
                   </IconButton>
-                  <Menu
-                    id="list-option"
-                    anchorEl={anchorEl}
-                    anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-                    elevation={2}
-                    open={open}
-                    aria-labelledby="list-video"
-                    onClose={HandelClose}
-                  >
-                    <List sx={{py:0}}>
-                      {videoOption.map((data, i) =>
-                        data.divider ? (
-                          <Divider sx={{bgcolor:"white"}} key={i}/>
-                        ) : (
-                          <ListItem disablePadding sx={{ pb:1 }} key={i}>
-                            <ListItemButton sx={{ height: 30 }}>
-                              <ListItemIcon sx={{ minWidth: 33 }}>
-                                {data.icon}
-                              </ListItemIcon>
-                              <ListItemText>
-                                <Typography variant="body2">
-                                  {data.title}
-                                </Typography>
-                              </ListItemText>
-                            </ListItemButton>
-                          </ListItem>
-                        )
-                      )}
-                    </List>
-                  </Menu>
                   <Tooltip title={video.title} followCursor>
                     <Typography
                       variant="p"
@@ -128,6 +104,34 @@ export default function Videos() {
           </Card>
         </Grid>
       ))}
+      {/* متواجده هنا حتي يتم تحسين الاداء لكي لا يتم تكرارها معهم وتفقد ادائها */}
+      <Menu
+      TransitionComponent={Zoom}
+        id="list-option"
+        anchorEl={anchorEl}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        elevation={2}
+        open={open}
+        aria-labelledby="list-video"
+        onClose={HandelClose}
+      >
+        <List sx={{ py: 0 }}>
+          {videoOption.map((data, i) =>
+            data.divider ? (
+              <Divider sx={{ bgcolor: "white" }} key={i} />
+            ) : (
+              <ListItem disablePadding sx={{ pb: 1 }} key={i}>
+                <ListItemButton sx={{ height: 30 }}>
+                  <ListItemIcon sx={{ minWidth: 33 }}>{data.icon}</ListItemIcon>
+                  <ListItemText>
+                    <Typography variant="body2">{data.title}</Typography>
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+            )
+          )}
+        </List>
+      </Menu>
     </Grid>
   );
 }
