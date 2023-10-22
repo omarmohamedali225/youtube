@@ -1,0 +1,30 @@
+.header-box .boxSearch{
+  display: flex;
+  width: 100%;
+  border: 1px solid #ffffff2b;
+  border-radius: 20px;
+  position: relative;
+}
+.header-box .boxSearch .search{
+  flex-grow: 1;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.header-box .boxSearch .MuiButtonBase-root.search_btn{
+  background-color: #222222;
+  border-radius: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-right: 1px solid #ffffff2b;
+}
+.header-box .boxSearch .MuiButtonBase-root svg{
+  font-size: 22px;
+  color:#fff;
+}
+.header-box .micro{
+  background-color: #222222;
+  margin-right: 15px;
+}
+.header-box .micro:hover{
+  background-color: #ffffff2b;
+}

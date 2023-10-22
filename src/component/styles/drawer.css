@@ -1,0 +1,10 @@
+.MuiPaper-root:hover::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 20px;
+}
+.MuiDrawer-paper {
+  width: 240px;
+}
+.MuiListItemButton-root.active {
+  background-color: #272727 !important;
+}
