@@ -19,7 +19,9 @@ import React from "react";
 import { ListItemsOne, ListItemsTwo, ListSubscribe } from "./data/dataList";
 import LogoYoutube from "./LogoYoutube";
 import { Menu } from "@mui/icons-material";
-export default function Lists({ IsOpen, SetOpen }) {
+import {useList} from '../hooks/OpenLists'
+export default function Lists() {
+  const {IsOpen,SetOpen} = useList()
   const Item = styled(ListItem)(() => ({
     paddingLeft: 16,
     paddingRight: 16,
@@ -47,6 +49,7 @@ export default function Lists({ IsOpen, SetOpen }) {
                 top: 0,
                 bgcolor: "#353535",
                 zIndex: 1,
+                mb:1
               }}
             >
               <ListItemIcon>
@@ -64,7 +67,7 @@ export default function Lists({ IsOpen, SetOpen }) {
               <LogoYoutube />
             </Item>
             {ListItemsOne.map((item, index) => (
-              <Item disablePadding key={index}>
+              <Item disablePadding key={index} >
                 <ListItemButton className={item.active ? "active" : undefined}>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText>

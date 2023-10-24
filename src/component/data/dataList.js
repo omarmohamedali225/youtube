@@ -1,6 +1,5 @@
 import { FileDownload, Home, Restore, Schedule, Slideshow, Subscriptions, ThumbUpOutlined, VideoLibrary, VideoSettings } from '@mui/icons-material'
 import meImg from '../../assets/me.jpg'
-import abdo from '../../assets/abdo.jpg'
 import img1 from '../../assets/1.avif'
 const ListItemsOne = [
   {
@@ -47,10 +46,6 @@ const ListSubscribe = [
   {
     src: meImg,
     name: "Omar Mohamed Ali"
-  }, 
-  {
-    src: abdo,
-    name: "Abdelrahman Mohamed Ali"
   },
   {
     src: meImg,

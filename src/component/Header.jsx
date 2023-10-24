@@ -22,9 +22,11 @@ import {
 } from "@mui/icons-material";
 import LogoYoutube from "../component/LogoYoutube";
 import "./styles/header.css";
-export default function Header({ SetOpen }) {
+import { useList } from "../hooks/OpenLists";
+export default function Header() {
+  const { SetOpen } = useList();
   const [showSearch, setShowSearch] = useState(false);
-  const theme = useTheme()
+  const theme = useTheme();
 
   const HandelShowSearch = () => {
     setShowSearch(true);
@@ -33,14 +35,13 @@ export default function Header({ SetOpen }) {
   const HandelHideSearch = () => {
     setShowSearch(false);
   };
-  
-  const hideSearchMd = useMediaQuery(theme.breakpoints.up('sm'))
-  useEffect(()=>{
-    if(hideSearchMd){
-      setShowSearch(false)
-    }
-  },[hideSearchMd])
 
+  const hideSearchMd = useMediaQuery(theme.breakpoints.up("sm"));
+  useEffect(() => {
+    if (hideSearchMd) {
+      setShowSearch(false);
+    }
+  }, [hideSearchMd]);
 
   const hideIconMeida1 = useMediaQuery("(max-width:440px)");
   const hideIconMeida2 = useMediaQuery("(max-width:300px)");
@@ -155,12 +156,9 @@ export default function Header({ SetOpen }) {
             </IconButton>
           </Tooltip>
           <Box component={"form"} className="boxSearch" sx={{ flexGrow: 1 }}>
-            <InputBase
-              placeholder="بحث"
-              className="search"
-            />
+            <InputBase placeholder="بحث" className="search" />
             <Tooltip title="بحث">
-              <Button size="small" className="search_btn" sx={{minWidth:40}}>
+              <Button size="small" className="search_btn" sx={{ minWidth: 40 }}>
                 <Search fontSize="inherit" />
               </Button>
             </Tooltip>
