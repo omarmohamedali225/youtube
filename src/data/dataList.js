@@ -55,7 +55,7 @@ const ListSubscribe = [
   },
   {
     src: abdo,
-    name: "عمر محمد علي"
+    name: "Abdelrahman Mohamed Ali"
   },
   {
     src: meImg2,
