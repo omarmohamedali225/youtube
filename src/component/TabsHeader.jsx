@@ -2,10 +2,10 @@ import { TabContext, TabList } from '@mui/lab'
 import {  Box, Chip, Tab, styled, useMediaQuery, useTheme } from '@mui/material'
 import React from 'react'
 
-export default function TabsHeader() {
+export default function TabsHeader({allow}) {
   const theme = useTheme()
   const stateBtnTab = useMediaQuery(theme.breakpoints.down('md'))
-  const TabItem = styled(Tab)(({})=>({
+  const TabItem = styled(Tab)(()=>({
     "&.active":{
       "& .MuiChip-root":{
         backgroundColor:"white",
@@ -33,9 +33,9 @@ export default function TabsHeader() {
     },
   }))
   return (
-      <Box position={"fixed"} sx={{mt:7,top:0,bgcolor:"#121212",width:"100%",zIndex:1}}>
+      <Box>
         <TabContext value='1'>
-        <TabList indicatorColor={null} allowScrollButtonsMobile scrollButtons={stateBtnTab} aria-label='scroll links youtube' variant='scrollable'>
+        <TabList indicatorColor={null} allowScrollButtonsMobile scrollButtons={stateBtnTab||allow} aria-label='scroll links youtube' variant='scrollable'>
           <TabItem className='active' label={<Chip label="كل المحتوي"/>} value={"1"}/>
           <TabItem label={<Chip label="موسيقي"/>} value={"2"}/>
           <TabItem label={<Chip label="تشكيلات"/>} value={"3"}/>

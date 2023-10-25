@@ -1,4 +1,5 @@
 import { MoreVert } from "@mui/icons-material";
+import { Link as LinkRouter } from "react-router-dom";
 import {
   Avatar,
   Card,
@@ -8,8 +9,8 @@ import {
   Divider,
   Grid,
   IconButton,
-  Link,
   List,
+  Link,
   ListItem,
   ListItemButton,
   ListItemIcon,
@@ -21,8 +22,8 @@ import {
   Zoom,
 } from "@mui/material";
 import React, { useState } from "react";
-import { videos } from "./data/video";
-import { videoOption } from "./data/dataVideoOption";
+import { videos } from "../data/video";
+import { videoOption } from "../data/dataVideoOption";
 export default function Videos() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -47,7 +48,7 @@ export default function Videos() {
               backgroundImage: "inherit",
             }}
           >
-            <CardActionArea>
+            <CardActionArea LinkComponent={LinkRouter} to={"/video"}>
               <CardMedia height={200} src={video.avatar} component={"img"} />
             </CardActionArea>
             <CardContent sx={{ bgcolor: "#121212", pl: 0 }}>
@@ -83,14 +84,14 @@ export default function Videos() {
                         textOverflow: "ellipsis",
                       }}
                     >
-                      <Link href="#" underline="none" color={"white"}>
+                      <Link component={LinkRouter} to={"/video"} underline="none" color={"white"}>
                         {video.title}
                       </Link>
                     </Typography>
                   </Tooltip>
                   <Tooltip title={video.channal} followCursor>
                     <Typography variant="body2" component={"p"}>
-                      <Link href="#" underline="none" color={"text.secondary"}>
+                      <Link component={LinkRouter} to={'/video'} underline="none" color={"text.secondary"}>
                         {video.channal}
                       </Link>
                     </Typography>
@@ -106,7 +107,7 @@ export default function Videos() {
       ))}
       {/* متواجده هنا حتي يتم تحسين الاداء لكي لا يتم تكرارها معهم وتفقد ادائها */}
       <Menu
-      TransitionComponent={Zoom}
+        TransitionComponent={Zoom}
         id="list-option"
         anchorEl={anchorEl}
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}

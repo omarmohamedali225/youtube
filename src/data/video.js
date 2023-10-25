@@ -1,8 +1,8 @@
-import img1 from '../../assets/1.avif'
-import img2 from '../../assets/2.jpg'
-import img3 from '../../assets/3.jfif'
-import img4 from '../../assets/4.jpeg'
-import img5 from '../../assets/5.jfif'
+import img1 from '../assets/1.avif'
+import img2 from '../assets/2.jpg'
+import img3 from '../assets/3.jfif'
+import img4 from '../assets/4.jpeg'
+import img5 from '../assets/5.jfif'
 export const videos = [
   {
     avatar: img1,

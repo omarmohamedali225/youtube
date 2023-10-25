@@ -1,3 +1,4 @@
+import "../styles/header.css";
 import React, { useEffect, useState } from "react";
 import {
   Avatar,
@@ -21,7 +22,6 @@ import {
   VideoCall,
 } from "@mui/icons-material";
 import LogoYoutube from "../component/LogoYoutube";
-import "./styles/header.css";
 import { useList } from "../hooks/OpenLists";
 export default function Header() {
   const { SetOpen } = useList();
