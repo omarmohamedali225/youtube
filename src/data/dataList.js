@@ -58,8 +58,8 @@ const ListSubscribe = [
     name: "Abdelrahman Mohamed Ali"
   },
   {
-    src: meImg2,
-    name: "عمر محمد علي"
+    src: null,
+    name: "Adam Tarek"
   },
   {
     src: img1,
