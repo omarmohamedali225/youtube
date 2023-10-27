@@ -20,7 +20,7 @@ import {
   Stack,
   Tooltip,
   Typography,
-  Zoom,
+  Fade,
 } from "@mui/material";
 import React, { useState } from "react";
 import { videoOption } from "../data/dataVideoOption";
@@ -64,17 +64,19 @@ export default function Videos({data}) {
                     onClick={HandelOpen}
                     sx={{
                       position: "absolute",
-                      right: -13,
+                      right: 0,
                       "&:hover": {
                         backgroundColor: "#121212",
                       },
                     }}
                   >
-                    <MoreVert />
+                    <MoreVert fontSize="inherit"/>
                   </IconButton>
                   <Tooltip title={video.title} followCursor>
                     <Typography
                       variant="p"
+                      component={"h6"}
+                      className="titleVideo"
                       sx={{
                         display: "-webkit-box",
                         lineClamp: 2,
@@ -107,10 +109,11 @@ export default function Videos({data}) {
       ))}
       {/* متواجده هنا حتي يتم تحسين الاداء لكي لا يتم تكرارها معهم وتفقد ادائها */}
       <Menu
-        TransitionComponent={Zoom}
+        TransitionComponent={Fade}
+        TransitionProps={{timeout:0}}
         id="list-option"
         anchorEl={anchorEl}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
         elevation={2}
         open={open}
         aria-labelledby="list-video"
