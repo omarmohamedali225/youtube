@@ -27,8 +27,8 @@ export default function Discription({ data }) {
         </Typography>
         {!open?<ArrowDropDown/>:<ArrowDropUp/>}
         <Collapse in={open}>
-          {data?.keywords?.map((item) => (
-            <Typography color={"text.secondary"}>{"#"+item}</Typography>
+          {data?.keywords?.map((item,i) => (
+            <Typography color={"text.secondary"} key={i}>{"#"+item}</Typography>
           ))}
         </Collapse>
       </Paper>

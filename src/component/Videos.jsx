@@ -7,31 +7,20 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
-  Divider,
   Grid,
   IconButton,
-  List,
   Link,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Menu,
   Stack,
   Tooltip,
   Typography,
-  Fade,
 } from "@mui/material";
 import React, { useState } from "react";
-import { videoOption } from "../data/dataVideoOption";
+import MenuFN from "./MenuFN";
 export default function Videos({data}) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+  const open = Boolean(anchorEl)
   const HandelOpen = (e) => {
     setAnchorEl(e.currentTarget);
-  };
-  const HandelClose = () => {
-    setAnchorEl(null);
   };
   return (
     <Grid
@@ -108,34 +97,7 @@ export default function Videos({data}) {
         </Grid>
       ))}
       {/* متواجده هنا حتي يتم تحسين الاداء لكي لا يتم تكرارها معهم وتفقد ادائها */}
-      <Menu
-        TransitionComponent={Fade}
-        TransitionProps={{timeout:0}}
-        id="list-option"
-        anchorEl={anchorEl}
-        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-        elevation={2}
-        open={open}
-        aria-labelledby="list-video"
-        onClose={HandelClose}
-      >
-        <List sx={{ py: 0 }}>
-          {videoOption.map((data, i) =>
-            data.divider ? (
-              <Divider sx={{ bgcolor: "white" }} key={i} />
-            ) : (
-              <ListItem disablePadding sx={{ pb: 1 }} key={i}>
-                <ListItemButton sx={{ height: 30 }}>
-                  <ListItemIcon sx={{ minWidth: 33 }}>{data.icon}</ListItemIcon>
-                  <ListItemText>
-                    <Typography variant="body2">{data.title}</Typography>
-                  </ListItemText>
-                </ListItemButton>
-              </ListItem>
-            )
-          )}
-        </List>
-      </Menu>
+      <MenuFN anchorEl={anchorEl} setAnchorEl={setAnchorEl}/>
     </Grid>
   );
 }

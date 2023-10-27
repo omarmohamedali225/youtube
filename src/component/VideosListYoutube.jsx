@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Card,
@@ -12,7 +12,13 @@ import {
 import { MoreVert } from "@mui/icons-material";
 import TabVideos from "../component/TabsHeader";
 import { Link } from "react-router-dom";
+import MenuFN from "./MenuFN";
 export default function VideosListYoutube({ dataListVideos }) {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl)
+  const HandelOpen = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
   return (
     <Grid item md={5} lg={5} xs={12} sx={{ width: "100%" }}>
       <Box px={{ md: 4 }} sx={{}}>
@@ -29,7 +35,11 @@ export default function VideosListYoutube({ dataListVideos }) {
               mt: 1,
             }}
           >
-            <CardActionArea LinkComponent={Link} to={`/video/${video.videoId}`} sx={{display:"contents"}}>
+            <CardActionArea
+              LinkComponent={Link}
+              to={`/video/${video.videoId}`}
+              sx={{ display: "contents" }}
+            >
               <CardMedia
                 component={"img"}
                 sx={{ height: 120, width: 160, objectFit: "fill" }}
@@ -62,13 +72,27 @@ export default function VideosListYoutube({ dataListVideos }) {
             </CardActionArea>
             <IconButton
               size="small"
-              sx={{ position: "absolute", right: 0, top: 0 }}
+              sx={{
+                position: "absolute",
+                right: 0,
+                top: 0,
+                "&:hover": {
+                  backgroundColor: "#121212",
+                },
+              }}
+              onClick={HandelOpen}
+              id="list-video"
+              aria-expanded={open ? true : undefined}
+              aria-controls={open ? "list-option" : undefined}
+              aria-haspopup={true}
             >
               <MoreVert />
             </IconButton>
           </Card>
         </Box>
       ))}
+      {/* متواجده هنا حتي يتم تحسين الاداء لكي لا يتم تكرارها معهم وتفقد ادائها */}
+      <MenuFN setAnchorEl={setAnchorEl} anchorEl={anchorEl} />
     </Grid>
   );
 }
