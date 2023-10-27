@@ -3,7 +3,6 @@ import { Box, Collapse, Paper, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { NumericFormat } from "react-number-format";
 export default function Discription({ data }) {
-  console.log(data);
   const [open,setOpen] = useState(false)
   const HandelDataTime = () => {
     const time = new Date(data.publishDate);
