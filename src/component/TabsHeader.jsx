@@ -34,17 +34,17 @@ export default function TabsHeader({allow}) {
   }))
   return (
       <Box>
-        <TabContext value='1'>
-        <TabList indicatorColor={null} allowScrollButtonsMobile scrollButtons={stateBtnTab||allow} aria-label='scroll links youtube' variant='scrollable'>
-          <TabItem className='active' label={<Chip label="كل المحتوي"/>} value={"1"}/>
-          <TabItem label={<Chip label="موسيقي"/>} value={"2"}/>
-          <TabItem label={<Chip label="تشكيلات"/>} value={"3"}/>
-          <TabItem label={<Chip label="مباشر"/>} value={"4"}/>
-          <TabItem label={<Chip label="برامج كوميدية"/>} value={"5"}/>
-          <TabItem label={<Chip label="كرة قدم"/>} value={"6"}/>
-          <TabItem label={<Chip label="القنوات التي تم تحميلها مؤخرا"/>} value={"7"}/>
-          <TabItem label={<Chip label="تمت مشاهدتها"/>} value={"8"}/>
-          <TabItem label={<Chip label="محتوي جديد لك"/>} value={"9"}/>
+        <TabContext value='كل المحتوي'>
+        <TabList indicatorColor={null} scrollButtons={stateBtnTab||allow} aria-label='scroll links youtube' variant='scrollable'>
+          <TabItem className='active' label={<Chip label="كل المحتوي"/>} value={"كل المحتوي"}/>
+          <TabItem label={<Chip label="موسيقي"/>} value={"موسيقي"}/>
+          <TabItem label={<Chip label="تشكيلات"/>} value={"تشكيلات"}/>
+          <TabItem label={<Chip label="مباشر"/>} value={"مباشر"}/>
+          <TabItem label={<Chip label="برامج كوميدية"/>} value={"برامج كوميدية"}/>
+          <TabItem label={<Chip label="كرة قدم"/>} value={"كرة قدم"}/>
+          <TabItem label={<Chip label="القنوات التي تم تحميلها مؤخرا"/>} value={"القنوات التي تم تحميلها مؤخرا"}/>
+          <TabItem label={<Chip label="تمت مشاهدتها"/>} value={"تمت مشاهدتها"}/>
+          <TabItem label={<Chip label="محتوي جديد لك"/>} value={"محتوي جديد لك"}/>
         </TabList>
       </TabContext>
       </Box>

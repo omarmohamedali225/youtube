@@ -20,7 +20,7 @@ import {
   Verified,
 } from "@mui/icons-material";
 
-export default function VideoYoutubeShow() {
+export default function VideoYoutubeShow({data}) {
   const media = useMediaQuery("(max-width:960px)");
   const ButtonLikeRight = styled(Button)(() => ({
     "&.MuiButton-root": {
@@ -47,7 +47,7 @@ export default function VideoYoutubeShow() {
       <Box sx={{ width: "100%", height: 350, mb: 1, ml: { md: 2 } }}>
         <iframe
           style={{ width: "100%", height: "100%" }}
-          src="https://www.youtube.com/embed/tF_PguZoq7U"
+          src={`https://www.youtube.com/embed/${data.id}`}
           title="أغنية انت تقدر كاملة / محمود العسيلي و محمد عدوية / اعلان بنك مصر رمضان 2018"
           frameلآorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -55,8 +55,7 @@ export default function VideoYoutubeShow() {
         ></iframe>
       </Box>
       <Typography variant="h6" sx={{ ml: { md: 2 } }}>
-        أغنية انت تقدر كاملة / محمود العسيلي و محمد عدوية / اعلان بنك مصر رمضان
-        2018
+        {data.title}
       </Typography>
       <Grid sx={{ ml: { md: 1 } }} container>
         <Grid item xs={12}>
@@ -64,7 +63,7 @@ export default function VideoYoutubeShow() {
             <Avatar src={unName} />
             <Box>
               <Typography variant="body1">
-                Mazzika - مزيكا <Verified fontSize={"inherit"} />
+                {data.channelTitle} <Verified fontSize={"inherit"} />
               </Typography>
               <Typography
                 component={"h4"}

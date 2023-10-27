@@ -1,5 +1,6 @@
 import { MoreVert } from "@mui/icons-material";
 import { Link as LinkRouter } from "react-router-dom";
+import img from '../assets/me.jpg'
 import {
   Avatar,
   Card,
@@ -22,9 +23,8 @@ import {
   Zoom,
 } from "@mui/material";
 import React, { useState } from "react";
-import { videos } from "../data/video";
 import { videoOption } from "../data/dataVideoOption";
-export default function Videos() {
+export default function Videos({data}) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const HandelOpen = (e) => {
@@ -39,8 +39,8 @@ export default function Videos() {
       sx={{ px: { md: 3, sm: 2, xs: 1 }, py: 1, mt: 11 }}
       spacing={2}
     >
-      {videos.map((video, i) => (
-        <Grid item xs={12} sm={6} md={4} key={i}>
+      {data.map((video) => (
+        <Grid item xs={12} sm={6} md={4} key={video.videoId}>
           <Card
             sx={{
               position: "relative",
@@ -48,12 +48,12 @@ export default function Videos() {
               backgroundImage: "inherit",
             }}
           >
-            <CardActionArea LinkComponent={LinkRouter} to={"/video"}>
-              <CardMedia height={200} src={video.avatar} component={"img"} />
+            <CardActionArea LinkComponent={LinkRouter} sx={{display:"flex"}} to={`/video/${video.videoId}`}>
+              <CardMedia height={video.thumbnail[3].height} sx={{width:video.thumbnail[3].width}} src={video.thumbnail[3].url} component={"img"} />
             </CardActionArea>
             <CardContent sx={{ bgcolor: "#121212", pl: 0 }}>
               <Stack direction={"row"} spacing={1}>
-                <Avatar sx={{ bgcolor: "#5D4038", color: "white" }}>O</Avatar>
+                <Avatar sx={{ bgcolor: "#5D4038", color: "white" }} src={img}>O</Avatar>
                 <Stack>
                   <IconButton
                     size="small"
@@ -84,20 +84,20 @@ export default function Videos() {
                         textOverflow: "ellipsis",
                       }}
                     >
-                      <Link component={LinkRouter} to={"/video"} underline="none" color={"white"}>
+                      <Link component={LinkRouter} to={`/video/${video.videoId}`} underline="none" color={"white"}>
                         {video.title}
                       </Link>
                     </Typography>
                   </Tooltip>
-                  <Tooltip title={video.channal} followCursor>
+                  <Tooltip title={video.channelTitle} followCursor>
                     <Typography variant="body2" component={"p"}>
-                      <Link component={LinkRouter} to={'/video'} underline="none" color={"text.secondary"}>
-                        {video.channal}
+                      <Link component={LinkRouter} to={`/video/${video.videoId}`} underline="none" color={"text.secondary"}>
+                        {video.channelTitle}
                       </Link>
                     </Typography>
                   </Tooltip>
                   <Typography variant="body2" color={"text.secondary"}>
-                    {video.views} • {video.time}
+                    {video.videoInfo}
                   </Typography>
                 </Stack>
               </Stack>

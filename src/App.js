@@ -27,7 +27,7 @@ export default function App() {
   const router = createBrowserRouter([
     { path: "/", element: <Layout />,children:[
       {path:"/",element:<Home/>},
-      {path:"/video",element:<Video/>},
+      {path:"/video/:id",element:<Video/>},
     ] },
   ])
 
