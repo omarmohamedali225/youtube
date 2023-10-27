@@ -9,7 +9,7 @@ export default function DataVideos({ children }) {
     async function FetchData() {
       try {
         const res = await axios.get("https://youtube-v3-alternative.p.rapidapi.com/playlist", {
-          params: { id: "PLZejDZO2nSZuAN_b6f9aWWxRVI5g9sK5M" },
+          params: { id: "PLp22-4PivYmIz6Nq_ZDMNQn-kpB65BNpx" },
           headers: {
             'X-RapidAPI-Key': 'df7eeeb4bbmsh813f9f3b20f33bcp1c5768jsn3be753c9e4fc',
             'X-RapidAPI-Host': 'youtube-v3-alternative.p.rapidapi.com'
