@@ -19,6 +19,7 @@ import {
   ThumbUpOffAlt,
   Verified,
 } from "@mui/icons-material";
+import Discription from "./discription";
 
 export default function VideoYoutubeShow({data}) {
   const media = useMediaQuery("(max-width:960px)");
@@ -149,6 +150,7 @@ export default function VideoYoutubeShow({data}) {
           </Stack>
         </Grid>
       </Grid>
+      <Discription data={data}/>
     </Grid>
   );
 }
