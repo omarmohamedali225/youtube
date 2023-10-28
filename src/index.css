@@ -11,6 +11,10 @@
     width: 0px;
   }
 }
+body{
+  overflow: auto !important;
+  padding-right: 0 !important;
+}
 .titleVideo{
   padding-left: 16px;
 }

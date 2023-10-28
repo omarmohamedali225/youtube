@@ -27,6 +27,7 @@ export default function MenuFN({anchorEl,setAnchorEl}) {
       open={open}
       aria-labelledby="list-video"
       onClose={HandelClose}
+      keepMounted
     >
       <List sx={{ py: 0 }}>
         {videoOption.map((data, i) =>
