@@ -9,8 +9,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Video from './pages/Video';
 import Layout from './layout/Layout';
 
-
-
 export default function App() {
   const Theme = createTheme({
     direction: "rtl",
@@ -25,10 +23,12 @@ export default function App() {
   })
 
   const router = createBrowserRouter([
-    { path: "/", element: <Layout />,children:[
-      {path:"/",element:<Home/>},
-      {path:"/video/:id",element:<Video/>},
-    ] },
+    {
+      path: "/", element: <Layout />, children: [
+        { path: "/", element: <Home /> },
+        { path: "/video/:id", element: <Video /> },
+      ]
+    },
   ])
 
   document.dir = "rtl"
@@ -36,10 +36,9 @@ export default function App() {
     <CacheProvider value={CacheRTL}>
       <ThemeProvider theme={Theme}>
         <CssBaseline />
-        <RouterProvider router={router}>
-          <Home />
-        </RouterProvider>
+        <RouterProvider router={router} />
       </ThemeProvider>
     </CacheProvider>
   )
 }
+
