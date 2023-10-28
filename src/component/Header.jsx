@@ -61,7 +61,7 @@ export default function Header() {
           direction={"row"}
           position={"fixed"}
         >
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1,pl:"2px" }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <Tooltip title="فتح القائمة">
               <IconButton
                 onClick={() => {

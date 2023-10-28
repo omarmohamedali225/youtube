@@ -8,7 +8,6 @@ import { CacheProvider } from '@emotion/react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Video from './pages/Video';
 import Layout from './layout/Layout';
-
 export default function App() {
   const Theme = createTheme({
     direction: "rtl",
