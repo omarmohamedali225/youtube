@@ -64,7 +64,7 @@ export default function Videos({data}) {
                   <Tooltip title={video.title} followCursor>
                     <Typography
                       variant="p"
-                      component={"h6"}
+                      component={"h4"}
                       className="titleVideo"
                       sx={{
                         display: "-webkit-box",
