@@ -25,9 +25,8 @@ export default function Videos({ data }) {
   const HandelOpen = (e) => {
     setAnchorEl(e.currentTarget);
   };
-console.log(data);
   const HandelVideosShow = () => {
-    if (data.length < 0) {
+    if (data.length > 0) {
       return data.map((video) => (
         <Grid item xs={12} sm={6} md={4} key={video.videoId}>
           <Card
@@ -132,7 +131,6 @@ console.log(data);
       ));
     }
   };
-
   return (
     <Grid
       container

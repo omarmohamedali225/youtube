@@ -6,6 +6,7 @@ import {
   Divider,
   Grid,
   IconButton,
+  Skeleton,
   Stack,
   Typography,
   styled,
@@ -21,7 +22,7 @@ import {
 } from "@mui/icons-material";
 import Discription from "./discription";
 
-export default function VideoYoutubeShow({data}) {
+export default function VideoYoutubeShow({ data }) {
   const media = useMediaQuery("(max-width:960px)");
   const ButtonLikeRight = styled(Button)(() => ({
     "&.MuiButton-root": {
@@ -55,24 +56,43 @@ export default function VideoYoutubeShow({data}) {
           allowFullScreen
         ></iframe>
       </Box>
-      <Typography variant="h6" sx={{ ml: { md: 2 } }}>
-        {data.title}
-      </Typography>
+      {data.length!==0 ? (
+        <Typography variant="h6" sx={{ ml: { md: 2 } }}>
+          {data.title}
+        </Typography>
+      ) : (
+        <>
+          <Skeleton variant="text" width={"100%"} />
+          <Skeleton variant="text" width={"80%"} />
+        </>
+      )}
       <Grid sx={{ ml: { md: 1 } }} container>
         <Grid item xs={12}>
           <Stack direction={"row"} spacing={0.5} sx={{ mt: 1 }}>
-            <Avatar src={unName} />
+            {data.length!==0 ? (
+              <Avatar src={unName} />
+            ) : (
+              <Skeleton variant="circular" width={50} height={50} />
+            )}
             <Box>
-              <Typography variant="body1">
-                {data.channelTitle} <Verified fontSize={"inherit"} />
-              </Typography>
-              <Typography
-                component={"h4"}
-                color={"text.secondary"}
-                variant="body2"
-              >
-                6.86 مليون مشترك
-              </Typography>
+              {data.length!==0 ? (
+                <Typography variant="body1">
+                  {data.channelTitle} <Verified fontSize={"inherit"} />
+                </Typography>
+              ) : (
+                <Skeleton variant="text" width={80} />
+              )}
+              {data.length!==0 ? (
+                <Typography
+                  component={"h4"}
+                  color={"text.secondary"}
+                  variant="body2"
+                >
+                  6.86 مليون مشترك
+                </Typography>
+              ) : (
+                <Skeleton variant="text" width={100} />
+              )}
             </Box>
             <Button
               size="small"
@@ -150,7 +170,7 @@ export default function VideoYoutubeShow({data}) {
           </Stack>
         </Grid>
       </Grid>
-      <Discription data={data}/>
+      <Discription data={data} />
     </Grid>
   );
 }
