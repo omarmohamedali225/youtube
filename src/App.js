@@ -8,6 +8,7 @@ import { CacheProvider } from '@emotion/react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Video from './pages/Video';
 import Layout from './layout/Layout';
+import Notfound from './pages/Notfound';
 export default function App() {
   const Theme = createTheme({
     direction: "rtl",
@@ -26,6 +27,7 @@ export default function App() {
       path: "/", element: <Layout />, children: [
         { path: "/", element: <Home /> },
         { path: "/video/:id", element: <Video /> },
+        { path: "*", element: <Notfound /> }
       ]
     },
   ])

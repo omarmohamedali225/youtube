@@ -55,7 +55,7 @@ export default function Header() {
             justifyContent: "space-between",
             width: "100%",
             zIndex: 1,
-            background: "#121212",
+            backgroundImage: "linear-gradient(black,black)",
             top: 0,
           }}
           direction={"row"}
