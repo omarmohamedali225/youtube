@@ -34,8 +34,8 @@ export default function MenuFN({anchorEl,setAnchorEl}) {
           data.divider ? (
             <Divider sx={{ bgcolor: "white" }} key={i} />
           ) : (
-            <ListItem disablePadding sx={{ pb: 1 }} key={i}>
-              <ListItemButton sx={{ height: 30 }}>
+            <ListItem disablePadding key={i}>
+              <ListItemButton sx={{ height: 40 }}>
                 <ListItemIcon sx={{ minWidth: 33 }}>{data.icon}</ListItemIcon>
                 <ListItemText>
                   <Typography variant="body2">{data.title}</Typography>

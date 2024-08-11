@@ -1,38 +1,50 @@
-import React from 'react'
-import Home from './pages/Home'
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material'
-import createCache from '@emotion/cache';
-import { prefixer } from 'stylis';
-import rtlPlugin from 'stylis-plugin-rtl';
-import { CacheProvider } from '@emotion/react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Video from './pages/Video';
-import Layout from './layout/Layout';
-import Notfound from './pages/Notfound';
+import React from "react";
+import Home from "./pages/Home";
+import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import createCache from "@emotion/cache";
+import { prefixer } from "stylis";
+import rtlPlugin from "stylis-plugin-rtl";
+import { CacheProvider } from "@emotion/react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Video from "./pages/Video";
+import Layout from "./layout/Layout";
+import Notfound from "./pages/Notfound";
+import Load from "./component/load";
 export default function App() {
+  const [load, setLoad] = React.useState(true);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoad(false);
+    }, 1000);
+  }, []);
+  if (load) {
+    return <Load />;
+  }
+
   const Theme = createTheme({
     direction: "rtl",
     palette: {
-      mode: "dark"
-    }
-  })
+      mode: "dark",
+    },
+  });
 
   const CacheRTL = createCache({
     key: "muirtl",
-    stylisPlugins: [prefixer, rtlPlugin]
-  })
+    stylisPlugins: [prefixer, rtlPlugin],
+  });
 
   const router = createBrowserRouter([
     {
-      path: "/", element: <Layout />, children: [
+      path: "/",
+      element: <Layout />,
+      children: [
         { path: "/", element: <Home /> },
         { path: "/video/:id", element: <Video /> },
-        { path: "*", element: <Notfound /> }
-      ]
+        { path: "*", element: <Notfound /> },
+      ],
     },
-  ])
-
-  document.dir = "rtl"
+  ]);
+  document.dir = "rtl";
   return (
     <CacheProvider value={CacheRTL}>
       <ThemeProvider theme={Theme}>
@@ -40,6 +52,5 @@ export default function App() {
         <RouterProvider router={router} />
       </ThemeProvider>
     </CacheProvider>
-  )
+  );
 }
-

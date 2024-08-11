@@ -19,7 +19,6 @@ import {
 import React, { useState } from "react";
 import MenuFN from "./MenuFN";
 export default function Videos({ data }) {
-  console.log(data);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const HandelOpen = (e) => {
@@ -134,7 +133,7 @@ export default function Videos({ data }) {
   return (
     <Grid
       container
-      sx={{ px: { md: 3, sm: 2, xs: 1 }, py: 1, mt: 11 }}
+      sx={{ px: { md: 3, sm: 2, xs: 1 }, py: 1, mt: 15 }}
       spacing={2}
     >
       {HandelVideosShow()}

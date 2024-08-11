@@ -8,6 +8,7 @@ export default function Notfound() {
       <Typography variant='h3' component={"h1"}>404</Typography>
       <Typography variant='p' component={"p"}>Page Not Found</Typography>
       <Button component={Link} variant='contained' color='error' sx={{my:2}} href='/'>Go Back</Button>
+      
     </Box>
   )
 }
